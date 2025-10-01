@@ -1,5 +1,4 @@
 SaaS Review Scraper
-
 📌 Objective
 
 This project is a review scraper for SaaS product reviews from multiple sources (G2, Capterra, and TrustRadius for bonus). It allows scraping reviews for a given company within a specified time range and saves them into a structured JSON file.
@@ -42,7 +41,7 @@ source – Review source (G2 / Capterra / TrustRadius)
 
 🛠️ Tech Stack
 
-Node.js (v18+)
+Node.js (v18+) – Node.js Documentation
 
 Puppeteer – Headless browser automation
 
@@ -79,10 +78,17 @@ YYYY-MM-DD → End date (e.g., 2025-06-30)
 source → g2, capterra, or trustradius
 
 Example:
-node scrapeReviews.js "Slack" 2025-01-01 2025-06-30 g2
+node scrapeReviews.js "Slack" 2023-01-01 2026-01-01 trustradius
 
 
-This will scrape Slack reviews from G2 between Jan 1, 2025 and June 30, 2025.
+Sample Output in Terminal:
+
+Scraping trustradius reviews for "Slack" between 2023-01-01 and 2026-01-01
+Navigating to TrustRadius: https://www.trustradius.com/products/slack/reviews
+Attempting to click "Load More" buttons on TrustRadius...
+No visible "Load More" button found. Stopping load loop.
+No buttons found, running auto-scroll fallback...
+Saved 5 reviews to Slack_trustradius_reviews.json
 
 📂 Output
 
@@ -95,7 +101,7 @@ File naming convention:
 
 Example:
 
-Slack_g2_reviews.json
+Slack_trustradius_reviews.json
 
 Sample JSON Output
 [
@@ -108,16 +114,6 @@ Sample JSON Output
     "cons": "Notification overload at times",
     "problemsSolved": "",
     "source": "G2"
-  },
-  {
-    "title": "Good but pricey",
-    "reviewer": "John D.",
-    "date": "2025-06-15",
-    "rating": 4,
-    "pros": "Integrates well with tools",
-    "cons": "Expensive for small teams",
-    "problemsSolved": "",
-    "source": "Capterra"
   }
 ]
 
@@ -135,10 +131,6 @@ If "Load More" or lazy-loaded reviews stop appearing → Script gracefully stops
 
 In addition to G2 and Capterra, this scraper also supports TrustRadius, with the same functionality and output structure.
 
-Run example:
-
-node scrapeReviews.js "Slack" 2025-01-01 2025-06-30 trustradius
-
 📊 Evaluation Criteria
 
 ✅ Time: Efficient scraping with pagination and lazy-loading handling
@@ -149,3 +141,11 @@ node scrapeReviews.js "Slack" 2025-01-01 2025-06-30 trustradius
 👨‍💻 Author
 
 Developed by Hemanth Lakkoju for Pulse Coding Assignment.
+
+🔗 References
+
+Node.js Official Documentation
+
+Puppeteer Official Documentation
+
+date-fns Documentation
