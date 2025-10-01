@@ -1,4 +1,5 @@
 SaaS Review Scraper
+
 📌 Objective
 
 This project is a review scraper for SaaS product reviews from multiple sources (G2, Capterra, and TrustRadius for bonus). It allows scraping reviews for a given company within a specified time range and saves them into a structured JSON file.
@@ -77,19 +78,6 @@ YYYY-MM-DD → End date (e.g., 2025-06-30)
 
 source → g2, capterra, or trustradius
 
-Example:
-node scrapeReviews.js "Slack" 2023-01-01 2026-01-01 trustradius
-
-
-Sample Output in Terminal:
-
-Scraping trustradius reviews for "Slack" between 2023-01-01 and 2026-01-01
-Navigating to TrustRadius: https://www.trustradius.com/products/slack/reviews
-Attempting to click "Load More" buttons on TrustRadius...
-No visible "Load More" button found. Stopping load loop.
-No buttons found, running auto-scroll fallback...
-Saved 5 reviews to Slack_trustradius_reviews.json
-
 📂 Output
 
 Reviews are saved as a JSON file in the project root.
@@ -149,3 +137,46 @@ Node.js Official Documentation
 Puppeteer Official Documentation
 
 date-fns Documentation
+
+⚡ Quick Start Test
+
+Here are 3 example commands to quickly test scraping from each supported source:
+
+G2 Example
+
+node scrapeReviews.js "Slack" 2023-01-01 2026-01-01 g2
+
+
+Expected Output:
+
+Scraping g2 reviews for "Slack" between 2023-01-01 and 2026-01-01
+Navigating to G2: https://www.g2.com/products/slack/reviews
+Attempting to load all reviews...
+Saved X reviews to Slack_g2_reviews.json
+
+
+Capterra Example
+
+node scrapeReviews.js "Slack" 2023-01-01 2026-01-01 capterra
+
+
+Expected Output:
+
+Scraping capterra reviews for "Slack" between 2023-01-01 and 2026-01-01
+Navigating to Capterra: https://www.capterra.com/p/slack/reviews
+Scrolling to load all reviews...
+Saved Y reviews to Slack_capterra_reviews.json
+
+
+TrustRadius Example
+
+node scrapeReviews.js "Slack" 2023-01-01 2026-01-01 trustradius
+
+
+Expected Output:
+
+Scraping trustradius reviews for "Slack" between 2023-01-01 and 2026-01-01
+Navigating to TrustRadius: https://www.trustradius.com/products/slack/reviews
+Attempting to click "Load More" buttons...
+No buttons found, running auto-scroll fallback...
+Saved 5 reviews to Slack_trustradius_reviews.json
