@@ -1,6 +1,13 @@
-📌 Overview
+SaaS Review Scraper
 
-SaaS Review Scraper is a Node.js-based scraper for collecting SaaS product reviews from multiple platforms:
+
+
+
+
+
+Overview
+
+SaaS Review Scraper is a Node.js-based tool for scraping SaaS product reviews from multiple platforms:
 
 G2
 
@@ -8,11 +15,11 @@ Capterra
 
 TrustRadius (bonus)
 
-The scraper allows you to fetch reviews for a specific company/product within a given time range and outputs them into a structured JSON file.
+It allows fetching reviews for a specific company/product within a given time range and outputs them into a structured JSON file.
 
 Key Features:
 
-Scrape reviews from multiple sources
+Multi-source scraping (G2, Capterra, TrustRadius)
 
 Handles pagination and "Load More" buttons
 
@@ -20,28 +27,25 @@ Supports lazy-loaded content
 
 Time-bounded scraping with start and end dates
 
-Saves structured JSON output including title, reviewer, date, rating, pros, cons, and more
+Saves structured JSON output including title, reviewer, date, rating, pros, cons, and problems solved
 
-🚀 Features
+Features
 Feature	Description
 Sources	G2, Capterra, TrustRadius (bonus)
-Time-bounded	Collects reviews only within the given start & end date
+Time-bounded	Collects reviews only within the specified start & end date
 Structured Output	JSON with fields: title, reviewer, date, rating, pros, cons, problemsSolved, source
 Error Handling	Invalid company names, dates, or failed loads handled gracefully
 Bonus	TrustRadius scraping integrated
-🛠️ Tech Stack
-
-Node.js v18+ – Official Docs
-
-Puppeteer – Headless browser automation (Docs
+Tech Stack
+Technology	Usage
+Node.js v18+	Core runtime (Docs
 )
-
-date-fns – Date parsing & formatting (Docs
+Puppeteer	Headless browser automation (Docs
 )
-
-fs/promises – File system for JSON output
-
-📥 Installation
+date-fns	Date parsing & formatting (Docs
+)
+fs/promises	File system access for JSON output
+Installation
 
 Clone the repository:
 
@@ -53,7 +57,7 @@ Install dependencies:
 
 npm install puppeteer date-fns
 
-▶️ Usage
+Usage
 node scrapeReviews.js "Company Name" YYYY-MM-DD YYYY-MM-DD source
 
 
@@ -64,16 +68,13 @@ Company Name	Name of the SaaS product/company (e.g., "Slack")
 YYYY-MM-DD	Start date (e.g., 2023-01-01)
 YYYY-MM-DD	End date (e.g., 2026-01-01)
 source	g2, capterra, or trustradius
-📂 Output
+Output
 
 Saved as a JSON file in the project root
 
-File naming convention:
+File naming convention: {CompanyName}_{Source}_reviews.json
 
-{CompanyName}_{Source}_reviews.json
-
-
-Sample JSON:
+Sample JSON Output:
 
 [
   {
@@ -88,17 +89,17 @@ Sample JSON:
   }
 ]
 
-⚠️ Error Handling
+Error Handling
 
-Invalid company name → exits with a message
+Invalid company name → exits with message
 
 Invalid date format → must be YYYY-MM-DD
 
-Start date after end date → throws an error
+Start date after end date → throws error
 
-"Load More" or lazy-loaded reviews stop appearing → script gracefully stops and saves available reviews
+"Load More" or lazy-loaded reviews stop appearing → script saves available reviews
 
-Example error output:
+Example Error:
 
 node scrapeReviews.js "NonExistentProductXYZ" 2023-01-01 2026-01-01 g2
 
@@ -107,8 +108,8 @@ Navigating to G2: https://www.g2.com/products/nonexistentproductxyz/reviews
 No reviews found or invalid company/product name.
 Scraping failed: No reviews available for the given company.
 
-⚡ Quick Start Test
-G2
+Quick Start Test
+<details> <summary>G2 Example</summary>
 node scrapeReviews.js "Slack" 2023-01-01 2026-01-01 g2
 
 
@@ -119,7 +120,7 @@ Navigating to G2: https://www.g2.com/products/slack/reviews
 Attempting to load all reviews...
 Saved X reviews to Slack_g2_reviews.json
 
-Capterra
+</details> <details> <summary>Capterra Example</summary>
 node scrapeReviews.js "Slack" 2023-01-01 2026-01-01 capterra
 
 
@@ -130,7 +131,7 @@ Navigating to Capterra: https://www.capterra.com/p/slack/reviews
 Scrolling to load all reviews...
 Saved Y reviews to Slack_capterra_reviews.json
 
-TrustRadius (Bonus)
+</details> <details> <summary>TrustRadius Example (Bonus)</summary>
 node scrapeReviews.js "Slack" 2023-01-01 2026-01-01 trustradius
 
 
@@ -142,18 +143,22 @@ Attempting to click "Load More" buttons...
 No buttons found, running auto-scroll fallback...
 Saved 5 reviews to Slack_trustradius_reviews.json
 
-📊 Evaluation Criteria
+</details>
+Evaluation Criteria
 
-✅ Time: Efficient scraping with pagination & lazy-loading
-✅ Code Quality: Modular, commented, extensible
-✅ Novelty: Integrates TrustRadius for bonus points
-✅ Output: Clean JSON with reviewer details, date filtering, and metadata
+Time: Efficient scraping with pagination & lazy-loading
 
-👨‍💻 Author
+Code Quality: Modular, commented, and extensible
+
+Novelty: Integrates TrustRadius for bonus points
+
+Output: Clean JSON with reviewer details, date filtering, and metadata
+
+Author
 
 Hemanth Lakkoju – Developed for Pulse Coding Assignment
 
-🔗 References
+References
 
 Node.js Official Documentation
 
