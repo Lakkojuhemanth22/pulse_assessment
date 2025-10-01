@@ -1,4 +1,5 @@
 SaaS Review Scraper
+
 📌 Objective
 
 This project is a review scraper for SaaS product reviews from multiple sources: G2, Capterra, and TrustRadius (bonus).
