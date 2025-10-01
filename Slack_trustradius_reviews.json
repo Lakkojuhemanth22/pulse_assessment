@@ -1,0 +1,52 @@
+[
+  {
+    "reviewer": "Donavan Dunga",
+    "title": "Slack The Future",
+    "date": "2025-04-09",
+    "rating": 5,
+    "pros": "Huddles Run smoothly without any interferences.Smooth individual calls quick and easy without any interruptions.seamless notifications across multiple devicesThe ability to easily tag a team member to urgently attend to a specific escalation.Slack being user friendly and able to integrate easily with other platforms and apps.How to easily open up different channels for different escalations and needs.a safe direct messaging option.",
+    "cons": "to be able to integrate Slack with CRM systems like Intercommaybe have different options to change to interface or background according to how i want it to look like.Slack is just so good.",
+    "problemsSolved": "I use Slack as my daily internal communications platform with my Team at work. The product really assists in quick escalation resolutions and prompt responses from team mates instead of using emails. Slack is really easy to use and we use it for quick catch up meetings in the mornings referred to as huddles. Really convenient as you can use the product both on your laptop and your person cell, meaning that you will always stay connected to your team even when having to attend to business on the road.",
+    "source": "TrustRadius"
+  },
+  {
+    "reviewer": "Gautam Sah",
+    "title": "Slack an overall communication",
+    "date": "2025-04-09",
+    "rating": 4.5,
+    "pros": "Slack workflows which helps to automate day to day or weekly tasksSlack Huddle which helps to communicate within the app and also the chat is saved in threadSlack To Do Lists which helps to manage small projectsSlack Canvas to keep the whole team on the same page",
+    "cons": "Slack workflows not having if and else condition or for loop like Salesforce flowsSlack to schedule a meeting at a particular timePrivacy issues as I recently got to know that Slack admins can view private group chats",
+    "problemsSolved": "Slack is used as day to day communication in my organisation. Slack helps me communicate with my colleagues every day and also if they face any issue I can huddle them along with that In a huddle 2 people can share their screen and also I can also use the pencil icon to draw on the screen. The Slack workflows helps me in automating task such as getting weekly reminder for my timesheet monthly reminder for attendance regularisation also I have created my own workflow to get weekly expenses and linked it with google sheet. In Slack, I have also explored the Agentforce Agents Actions. I have also integrated Jira and Outlook to get their notification and summary in a single app, which save my laptop RAM. Also the UI is quite good and easy to use.",
+    "source": "TrustRadius"
+  },
+  {
+    "reviewer": "Prashanth T",
+    "title": "Slack Review",
+    "date": "2025-04-25",
+    "rating": 5,
+    "pros": "direct messageshuddling systemcreating a public and private channelsAdd template to channeleasy to Communicate with clients",
+    "cons": "difficulty to finding a fileswhen a message posted in channel , we can't see whether the person the read the messages or not.too many notifications",
+    "problemsSolved": "Slack is a very easy and useful app, using Slack we can chat one to one and we can create private and public channels , helps teams communicate and collaborate on projects huddle system was good we can work together easy way to search the messages, it is very useful for IT industries now a days. Mast of them are love to use Slack now an days",
+    "source": "TrustRadius"
+  },
+  {
+    "reviewer": "Yuva rajesh",
+    "title": "Best Collaboration Communication tool for Teams",
+    "date": "2025-04-18",
+    "rating": 4.5,
+    "pros": "With the JIRA integration, our folks can pick a ticket and respond instantly. This saves time and prevents delays caused by email, which is how the team used to operate’. The team now responds much more quickly. What’s more, the person raising the ticket is automatically notified when the problem is solved, removing the need for lengthy back-and-forth communication.The company culture feeds off the sense of connectedness that starts with channels and Huddles – an audio-first way to communicate – used by employees each day. ‘Huddles is a big part of our every daySlack analytics to measure engagement and sentiment, while multiple wellness surveys each month provide the necessary data",
+    "cons": "More visiblity into Channel level AnalaticsFine-grained admin roles & premissions",
+    "problemsSolved": "Before Slack, fragmented communication and the volume of emails exchanged internally created a problem that needed to be nipped in the bud. As the company grew, with new offices opening around the world, we needed to respect different time zones and integrate separate tools and solutions to streamline work. So, we adopted Slack",
+    "source": "TrustRadius"
+  },
+  {
+    "reviewer": "Sahil Khan",
+    "title": "Best tool for communication and collaboration within the organization",
+    "date": "2025-04-15",
+    "rating": 5,
+    "pros": "Slack really provides a great and easy to use user interface with good appearance option like Slack theme and custom theme.Integration of Slack with other third party tools like JIRA, Confluence, GitHub.Threaded conversation allows us to do a side discussion out of the main flow.",
+    "cons": "Slack should improve their huddle feature. Most of the times when I huddle someone either they are not able to hear me or I am not able to hear them, I have to again join the huddle to fix this issue.Slack should include the option to create a table in messages, as it is sometimes required to send the text in a tabular format.File management can be improved as it is sometimes difficult to search the old files and documents.",
+    "problemsSolved": "Slack at Numerator is mainly used for communication and collaboration within the organization. We can communicate directly with our colleagues or we can create a slack channel or group to communicate with more than one person. The business problem that Slack solve is internal communication by providing a great platform for teams to collaborate. As Slack can also be integrated with other third party tools like GitHub, we get timely update on Slack about the latest release on the GitHub repositories.",
+    "source": "TrustRadius"
+  }
+]
