@@ -1,102 +1,150 @@
-📊 Multi-Source Review Scraper
-This is a Node.js script built to scrape customer reviews from multiple popular software review platforms (G2, Capterra, and TrustRadius) and filter the results by a specific date range. It uses Puppeteer for robust browser automation, handling dynamic content loading (like "Load More" buttons) to ensure comprehensive data collection.
+SaaS Review Scraper
+📌 Objective
 
-🛠️ Prerequisites
-Before running the scraper, you need to have the following installed on your system:
+This project is a review scraper for SaaS product reviews from multiple sources (G2, Capterra, and TrustRadius for bonus). It allows scraping reviews for a given company within a specified time range and saves them into a structured JSON file.
 
-Node.js (LTS version recommended)
+The script:
 
-npm (Node Package Manager)
+Accepts Company Name, Start Date, End Date, and Source as inputs.
 
-📦 Installation
-Save the Script: Save the provided code as a file named scrapeReviews.js.
+Scrapes reviews from G2 and Capterra (bonus: TrustRadius).
 
-Initialize Project: If you don't have a package.json, create one:
+Handles pagination/load more and lazy-loading of reviews.
 
-npm init -y
+Saves output as a structured JSON file with fields like title, reviewer, date, rating, pros, cons, and description.
 
-Install Dependencies: This script uses puppeteer for browser automation and date-fns for robust date handling.
+🚀 Features
+
+Scrape reviews from G2 and Capterra.
+
+Bonus: Scraping support for TrustRadius.
+
+Time-bounded scraping: Only collects reviews within a given start & end date.
+
+Structured JSON output including:
+
+title – Review title
+
+reviewer – Reviewer’s name (if available)
+
+date – Review date (standardized to YYYY-MM-DD)
+
+rating – Star rating (standardized to 1–5 scale)
+
+pros – Pros mentioned by the reviewer (if available)
+
+cons – Cons mentioned by the reviewer (if available)
+
+problemsSolved – (Bonus field for Capterra/TrustRadius)
+
+source – Review source (G2 / Capterra / TrustRadius)
+
+🛠️ Tech Stack
+
+Node.js (v18+)
+
+Puppeteer – Headless browser automation
+
+date-fns – Date parsing/formatting
+
+fs/promises – File system for JSON output
+
+📥 Installation
+
+Clone this repo:
+
+git clone https://github.com/your-repo/review-scraper.git
+cd review-scraper
+
+
+Install dependencies:
 
 npm install puppeteer date-fns
 
-Enable ES Modules: Since the script uses import/export syntax (ES modules), you must add "type": "module" to your package.json file.
+▶️ Usage
 
-Your package.json should look something like this:
+Run the script with the following format:
 
-{
-  "name": "review-scraper",
-  "version": "1.0.0",
-  "type": "module", 
-  "dependencies": {
-    "date-fns": "^x.x.x",
-    "puppeteer": "^x.x.x"
+node scrapeReviews.js "Company Name" YYYY-MM-DD YYYY-MM-DD source
+
+Arguments:
+
+Company Name → Name of the product/company (e.g., "Slack")
+
+YYYY-MM-DD → Start date (e.g., 2025-01-01)
+
+YYYY-MM-DD → End date (e.g., 2025-06-30)
+
+source → g2, capterra, or trustradius
+
+Example:
+node scrapeReviews.js "Slack" 2025-01-01 2025-06-30 g2
+
+
+This will scrape Slack reviews from G2 between Jan 1, 2025 and June 30, 2025.
+
+📂 Output
+
+Reviews are saved as a JSON file in the project root.
+
+File naming convention:
+
+{CompanyName}_{Source}_reviews.json
+
+
+Example:
+
+Slack_g2_reviews.json
+
+Sample JSON Output
+[
+  {
+    "title": "Great for team communication",
+    "reviewer": "Amie S.",
+    "date": "2025-09-30",
+    "rating": 5,
+    "pros": "Easy to use, mobile + desktop support",
+    "cons": "Notification overload at times",
+    "problemsSolved": "",
+    "source": "G2"
+  },
+  {
+    "title": "Good but pricey",
+    "reviewer": "John D.",
+    "date": "2025-06-15",
+    "rating": 4,
+    "pros": "Integrates well with tools",
+    "cons": "Expensive for small teams",
+    "problemsSolved": "",
+    "source": "Capterra"
   }
-}
+]
 
-🚀 Usage
-The script is executed via the command line and requires four positional arguments: the product name, the start date, the end date, and the source platform.
+⚠️ Error Handling
 
-Command Structure
-node scrapeReviews.js "Company Name" YYYY-MM-DD YYYY-MM-DD [source]
+Invalid company name → Script exits with message.
 
-Argument
+Invalid date format → Must be YYYY-MM-DD.
 
-Description
+Start date after end date → Throws error.
 
-Required Format
+If "Load More" or lazy-loaded reviews stop appearing → Script gracefully stops and saves available reviews.
 
-"Company Name"
+🏆 Bonus: Third Source
 
-The product you want to search for (e.g., "Slack"). Use quotes if the name contains spaces.
+In addition to G2 and Capterra, this scraper also supports TrustRadius, with the same functionality and output structure.
 
-string
+Run example:
 
-Start Date
+node scrapeReviews.js "Slack" 2025-01-01 2025-06-30 trustradius
 
-The beginning of the review period (inclusive).
+📊 Evaluation Criteria
 
-YYYY-MM-DD
+✅ Time: Efficient scraping with pagination and lazy-loading handling
+✅ Code Quality: Modular, commented, and extensible
+✅ Novelty: Integrates a third review source (TrustRadius) for bonus
+✅ Output: Clean JSON with reviewer details, date filtering, and metadata
 
-End Date
+👨‍💻 Author
 
-The end of the review period (inclusive).
-
-YYYY-MM-DD
-
-Source
-
-The review platform to scrape.
-
-g2, capterra, or trustradius
-
-Examples
-1. Scraping G2 Reviews for Slack
-To get all G2 reviews for "Slack" between January 1st, 2024, and June 30th, 2024:
-
-node scrapeReviews.js "Slack" 2024-01-01 2024-06-30 g2
-
-2. Scraping Capterra Reviews for Zoom
-To get all Capterra reviews for "Zoom" between October 1st, 2023, and March 31st, 2024:
-
-node scrapeReviews.js "Zoom" 2023-10-01 2024-03-31 capterra
-
-Output
-The scraped and filtered data will be saved to a JSON file in the root directory named using the following pattern:
-
-[Company Name]_[Source]_reviews.json
-
-(Example: Slack_g2_reviews.json)
-
-✨ Key Features
-1. Robust Dynamic Content Loading (G2 Fix)
-The script explicitly addresses the challenge of modern websites that don't load all content via simple scrolling:
-
-G2: It uses a loop to repeatedly click the "Load More" button until it is no longer visible, ensuring all available reviews are loaded before extraction.
-
-Capterra/TrustRadius: It uses combinations of "Load More" clicking and automated scrolling as required by those platforms.
-
-2. Precise Date Filtering
-Reviews are fetched and then rigorously filtered against the YYYY-MM-DD date range you provide using the reliable date-fns library. Only reviews posted within that exact window will be included in the final JSON output.
-
-3. Stealth Configuration
-The Puppeteer configuration includes several advanced settings (e.g., modifying the navigator.webdriver property and custom user agent strings) to reduce the likelihood of detection by anti-bot measures.
+Developed by Hemanth Lakkoju for Pulse Coding Assignment.
